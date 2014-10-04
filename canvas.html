@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        canvas{
+            border: thin solid black;
+        }
+    </style>
+
+</head>
+<body>
+<canvas id="canvas" width="800" height="600" ></canvas>
+
+
+
+
+<script>
+    var canvasContext = document.getElementById('canvas').getContext("2d");
+    var count = 0;
+    var x;
+    var y;
+    var xpos = 0;
+    var img = new Image();
+    img.src = "spreatSheet.png";
+    img.onload = setInterval(draw, 100);
+
+    function draw(){
+        xpos = xpos + 12;
+        if(xpos == 12*55 ){
+            xpos = 0;
+        }
+        canvasContext.clearRect(0, 0, 800, 600);
+        x = (count % 2) * 500;
+        y = Math.floor(count / 2) * 270;
+        canvasContext.drawImage(img, x, y, 500, 280, xpos , 0, 200, 100);
+        if(count == 7){
+            count = 0
+        }else{
+            count++;
+        }
+    }
+
+    /*img.onload = function(){
+        canvasContext.drawImage(this, 0, 0, 500 ,300, 0, 0, 800, 600)
+    }*/
+</script>
+</body>
+</html>
