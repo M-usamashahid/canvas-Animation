@@ -1,1 +1,1 @@
-***# First Canvas Animation using sprite sheet #***
+***#Canvas Animation using sprite sheet #***
